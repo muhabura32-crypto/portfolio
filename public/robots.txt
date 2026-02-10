@@ -1,0 +1,9 @@
+# Allow all crawlers
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://xavier.com/sitemap.xml
+
+# Crawl delay for respecting server resources
+Crawl-delay: 10
