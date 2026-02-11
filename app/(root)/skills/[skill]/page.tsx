@@ -4,10 +4,10 @@ import { skills } from "@/config/skills";
 import { Projects } from "@/config/projects";
 import { experiences } from "@/config/experience";
 import { siteConfig } from "@/config/site";
-import { PageContainer } from "@/components/common/page-container";
-import { PageHeader } from "@/components/common/page-header";
+import PageContainer from "@/components/common/page-container";
+import PageHeader from "@/components/common/page-header";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/chip";
+import Chip from "@/components/ui/chip";
 
 interface SkillPageProps {
   params: Promise<{ skill: string }>;
@@ -86,17 +86,10 @@ export default async function SkillPage({ params }: SkillPageProps) {
   );
 
   return (
-    <PageContainer>
-      <PageHeader
-        title={skill.name}
-        description={skill.description}
-        badges={[
-          <Badge key="rating" variant="outline">
-            Proficiency: {skill.rating}/5
-          </Badge>,
-        ]}
-      />
-
+    <PageContainer
+      title={skill.name}
+      description={skill.description}
+    >
       <div className="grid gap-6 mt-8">
         {/* Skill Overview */}
         <Card>
@@ -105,6 +98,9 @@ export default async function SkillPage({ params }: SkillPageProps) {
           </CardHeader>
           <CardContent>
             <p className="text-muted-foreground">{skill.description}</p>
+            <div className="mt-4">
+              <Chip content={`Proficiency: ${skill.rating}/5`} />
+            </div>
           </CardContent>
         </Card>
 
@@ -128,9 +124,7 @@ export default async function SkillPage({ params }: SkillPageProps) {
                     </p>
                     <div className="flex flex-wrap gap-1 mt-2">
                       {project.techStack.slice(0, 3).map((tech) => (
-                        <Badge key={tech} variant="secondary" className="text-xs">
-                          {tech}
-                        </Badge>
+                        <Chip key={tech} content={tech} />
                       ))}
                     </div>
                   </a>
