@@ -3,6 +3,7 @@ import { MainNav } from "@/components/common/main-nav";
 import { ModeToggle } from "@/components/common/mode-toggle";
 import { SiteFooter } from "@/components/common/site-footer";
 import { WhatsAppChat } from "@/components/common/whatsapp-chat";
+import { BackgroundSelector, BackgroundDisplay } from "@/components/common/background-selector";
 import { routesConfig } from "@/config/routes";
 
 interface MarketingLayoutProps {
@@ -12,17 +13,20 @@ interface MarketingLayoutProps {
 export default function MarketingLayout({ children }: MarketingLayoutProps) {
   return (
     <div className="flex min-h-screen flex-col">
+      <BackgroundDisplay />
       <header className="sticky top-0 z-50 w-full backdrop-blur-lg bg-background/80 border-b">
         <div className="container flex h-20 items-center justify-between py-6">
           <MainNav items={routesConfig.mainNav}>
             <div className="flex items-center gap-3">
               <GitHubStarBadge className="w-full justify-center" />
               <ModeToggle />
+              <BackgroundSelector />
             </div>
           </MainNav>
           <nav className="flex items-center gap-5">
             <GitHubStarBadge />
             <ModeToggle />
+            <BackgroundSelector />
           </nav>
         </div>
       </header>
