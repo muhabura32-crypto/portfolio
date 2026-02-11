@@ -1,9 +1,65 @@
+# SEO-Optimized Robots.txt for xavier Portfolio
+# This file helps search engines crawl and index your site effectively
+
 # Allow all crawlers
 User-agent: *
 Allow: /
+
+# Disallow private/admin pages
+Disallow: /api/
+Disallow: /_next/
+Disallow: /private/
 
 # Sitemap location
 Sitemap: https://xavier.com/sitemap.xml
 
 # Crawl delay for respecting server resources
 Crawl-delay: 10
+
+# Google-specific directives
+User-agent: Googlebot
+Allow: /
+Disallow: /api/
+Disallow: /_next/
+
+# Bing-specific directives
+User-agent: Bingbot
+Allow: /
+Disallow: /api/
+Disallow: /_next/
+
+# Other search engines
+User-agent: DuckDuckBot
+Allow: /
+Disallow: /api/
+
+User-agent: Baiduspider
+Allow: /
+Disallow: /api/
+
+User-agent: YandexBot
+Allow: /
+Disallow: /api/
+
+# Social media crawlers
+User-agent: Twitterbot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+User-agent: Facebookexternalhit
+Allow: /
+
+# AI training bots - optional: disallow if you don't want AI to scrape your content
+# User-agent: CCBot
+# Allow: /
+# Disallow: /api/
+
+# User-agent: GPTBot
+# Allow: /
+# Disallow: /api/
+
+# Performance hints
+Host: https://xavier.com
+Clean-Param: utm_source&utm_medium&utm_campaign
