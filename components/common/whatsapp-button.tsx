@@ -1,8 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { MessageCircle } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import Image from "next/image";
 import { cn } from "@/lib/utils";
 
 const WHATSAPP_NUMBER = "+250791220097";
@@ -20,11 +19,6 @@ export function WhatsAppButton() {
     return () => clearTimeout(timer);
   }, []);
 
-  const handleClick = () => {
-    const url = `https://wa.me/${WHATSAPP_NUMBER.replace(/\+/g, "").replace(/ /g, "")}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
-    window.open(url, "_blank", "noopener,noreferrer");
-  };
-
   if (!isVisible) return null;
 
   return (
@@ -35,7 +29,7 @@ export function WhatsAppButton() {
       className={cn(
         "fixed bottom-6 right-6 z-50",
         "flex items-center justify-center",
-        "w-14 h-14 rounded-full",
+        "w-16 h-16 rounded-full",
         "bg-[#25D366] hover:bg-[#20BD5A]",
         "text-white shadow-lg transition-all duration-300",
         "hover:scale-110 hover:shadow-xl",
@@ -43,8 +37,13 @@ export function WhatsAppButton() {
       )}
       aria-label="Chat on WhatsApp"
     >
-      <MessageCircle className="w-7 h-7" />
-      <span className="sr-only">Chat on WhatsApp</span>
+      <Image
+        src="/wame.jpg"
+        alt="WhatsApp"
+        width={40}
+        height={40}
+        className="rounded-full"
+      />
     </a>
   );
 }
