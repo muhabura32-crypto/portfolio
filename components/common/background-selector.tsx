@@ -179,11 +179,18 @@ export function BackgroundDisplay() {
 
   if (!currentBackground) return null;
 
+  // Check if it's a gradient (contains 'gradient') or an image URL
+  const isGradient = currentBackground.includes("gradient");
+  
   return (
     <div
       className="fixed inset-0 -z-10 pointer-events-none"
       style={{
-        background: currentBackground,
+        backgroundColor: isGradient ? undefined : currentBackground,
+        backgroundImage: isGradient ? currentBackground : undefined,
+        backgroundPosition: "center",
+        backgroundSize: "cover",
+        backgroundRepeat: "no-repeat",
         backgroundAttachment: "fixed",
       }}
     />
