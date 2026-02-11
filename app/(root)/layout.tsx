@@ -2,7 +2,7 @@ import { GitHubStarBadge } from "@/components/common/github-star-badge";
 import { MainNav } from "@/components/common/main-nav";
 import { ModeToggle } from "@/components/common/mode-toggle";
 import { SiteFooter } from "@/components/common/site-footer";
-import { WhatsAppButton } from "@/components/common/whatsapp-button";
+import { WhatsAppChat } from "@/components/common/whatsapp-chat";
 import { routesConfig } from "@/config/routes";
 
 interface MarketingLayoutProps {
@@ -28,7 +28,7 @@ export default function MarketingLayout({ children }: MarketingLayoutProps) {
       </header>
       <main className="container flex-1">{children}</main>
       <SiteFooter />
-      <WhatsAppButton />
+      <WhatsAppChat />
     </div>
   );
 }
